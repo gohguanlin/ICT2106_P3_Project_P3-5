@@ -27,12 +27,12 @@ import ServiceCenters from './Pages/Employee/ServiceCenters';
 import VolunteerWork from './Pages/Volunteer/VolunteerWork';
 import Project from './Pages/Project/Project';
 import Expense from './Pages/Expense/Expense';
+import Request from './Pages/Request/Request';
+import Feedback from './Pages/Feedback/Feedback';
 import Permissions from './Pages/Admin/Permissions';
 
 import Home  from "./Pages/Home"
 import VolunteerHome from "./Pages/Volunteer/volunteerHome"
-
-import Sample from './Pages/Sample';
 
 
 /* function getToken() {  
@@ -95,20 +95,24 @@ export default function App() {
             <SlideDrawer show={drawerOpen} toggle={drawerToggleClickHandler} direction={"top"}>
               
               <DrawerSection label={"Modules"}>
-                <DrawerItem label="Home" to={"/"} logo={userImg} currentActive = {active} setActive={setActive}></DrawerItem>
-                
-                {parsedPerms.map((perm)=>{<DrawerItem label="Employees" to={"/Employees"} logo={userImg} currentActive = {active} setActive={setActive}></DrawerItem>
-                const currMod = perm.Module;
-                const toTextUrl = perm.Module.replace(" ", "-");
-                if(perm.Read){
-                  return <DrawerItem label={currMod} to={"/" + toTextUrl} logo={userImg}></DrawerItem>
-                }
-                })}
+                <DrawerItem label="Users" to={"/"} logo={userImg} currentActive = {active} setActive={setActive}></DrawerItem>
+                <DrawerItem label="Employees" to={"/Employees"} logo={userImg} currentActive = {active} setActive={setActive}></DrawerItem>
+                <DrawerItem label="Volunteers" to={"/Volunteers"} logo={userImg} currentActive = {active} setActive={setActive}></DrawerItem>
+                <DrawerItem label="Volunteer Work" to={"/VolunteerWork"} logo={userImg} currentActive = {active} setActive={setActive}></DrawerItem>
+                <DrawerItem label="Donors" to={"/Donors"} logo={userImg} currentActive = {active} setActive={setActive}></DrawerItem>
+                <DrawerItem label="Donations" to={"/Donations"} logo={userImg} currentActive = {active} setActive={setActive}></DrawerItem>
+                <DrawerItem label="Service Center" to={"/ServiceCenters"} logo={userImg} currentActive = {active} setActive={setActive}></DrawerItem>
+                <DrawerItem label="Project" to={"/Project"} logo={userImg} currentActive = {active} setActive={setActive}></DrawerItem>
+                <DrawerItem label="Expense" to={"/Expense"} logo={userImg} currentActive = {active} setActive={setActive}></DrawerItem>
+                <DrawerItem label="Permissions" to={"/Permissions"} logo={userImg} currentActive = {active} setActive={setActive}></DrawerItem>
+                <DrawerItem label="Request" to={"/Request"} logo={userImg} currentActive = {active} setActive={setActive}></DrawerItem>
+                <DrawerItem label="Feedback" to={"/Feedback"} logo={userImg} currentActive = {active} setActive={setActive}></DrawerItem>
                 <DrawerItem label="Logout" to={"/Logout"} logo={logoutImg}></DrawerItem>
               </DrawerSection>
             </SlideDrawer>
             
             <Routes>
+<<<<<<< HEAD
               {token.data.Role == "Admin" &&
                 <Route path="/" element={<Home user={token} permissions = {parsedPerms}/>}/>
               }
@@ -162,6 +166,21 @@ export default function App() {
               <Route path="/Expenses" element={<Expense user={token} permissions = {parsedPerms}/>}/>
               <Route path="/Permissions" element={<Permissions user={token} permissions = {parsedPerms}/>}/>
               <Route path="/Sample" element={<Sample user={token} permissions = {parsedPerms}/>}/>
+=======
+              <Route path="/" element={<Users user={token} permissions = {JSON.parse(perms)}/>}/>
+              <Route path="/Employees" element={<Employees user={token} permissions = {JSON.parse(perms)}/>}/>
+              <Route path="/Volunteers" element={<Volunteer user={token} permissions = {JSON.parse(perms)}/>}/>
+              <Route path="/volunteer-registration" element={<VolunteerRegistration user={token} permissions = {JSON.parse(perms)}/>}/>
+              <Route path="/Donors" element={<Donors user={token} permissions = {JSON.parse(perms)}></Donors>}/>
+              <Route path="/Donations" element={<Donations user={token} permissions = {JSON.parse(perms)}></Donations>}/>
+              <Route path="/VolunteerWork" element={<VolunteerWork user={token} permissions = {JSON.parse(perms)}/>}/>
+              <Route path="/ServiceCenters" element={<ServiceCenters user={token} permissions = {JSON.parse(perms)}/>}/>
+              <Route path="/Project" element={<Project user={token} permissions = {JSON.parse(perms)}/>}/>
+              <Route path="/Expense" element={<Expense user={token} permissions = {JSON.parse(perms)}/>}/>
+              <Route path="/Permissions" element={<Permissions user={token} permissions = {JSON.parse(perms)}/>}/>
+              <Route path="/Request" element={<Request user={token} permissions = {JSON.parse(perms)}/>}/>
+              <Route path="/Feedback" element={<Feedback user={token} permissions = {JSON.parse(perms)}/>}/>
+>>>>>>> cf617ac (Resource Request and  Feedback feature implemented)
               <Route path="/Logout" element={<Logout logout={logout} clearPerms={clearPerms}></Logout>}/>
 
             </Routes>

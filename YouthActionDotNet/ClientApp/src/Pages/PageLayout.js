@@ -257,7 +257,6 @@ export default class DatapageLayout extends React.Component {
                                 setExpansionContent={this.setExpansionContent} 
                                 handleSeeMore={this.handleSeeMore} 
                                 handleClose={this.handleClose} 
-                                hasFields={this.props.hasFields}
                                 popUpContent={this.state.popUpContent}
                                 perms={this.state.perms}>
                                     {this.props.children? 
@@ -343,10 +342,13 @@ export default class DatapageLayout extends React.Component {
         )
     }
 }
+<<<<<<< HEAD
 DatapageLayout.defaultProps = {
     hasFields: true
 }
 
+=======
+>>>>>>> cf617ac (Resource Request and  Feedback feature implemented)
 export class TableHeader extends React.Component {
     constructor(props) {
         super(props);
